@@ -9,8 +9,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Ensure layers stay small
 RUN apt-get update \
     && apt-get install -y --no-install-recommends gcc python3-dev libsasl2-dev libssl-dev \
-    && apt-get install -y --no-install-recommends netcat postgresql-client tzdata \
-    && apt-get install -y --no-install-recommends git \
+    && apt-get install -y --no-install-recommends netcat libpq-dev postgresql-client tzdata \
+    && apt-get install -y --no-install-recommends git libjpeg-dev zlib1g-dev \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /app
