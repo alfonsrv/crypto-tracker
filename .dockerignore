@@ -1,0 +1,14 @@
+#/docker/
+!/docker/docker-entrypoint.sh
+!/docker/start.sh
+/docs/
+.env
+/config/settings/dev.py
+/config/settings/test.py
+
+/psql-data/
+/meili-data/
+/ca_files/
+/redis/
+/static/
+/media_files/
