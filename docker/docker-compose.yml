@@ -1,0 +1,74 @@
+version: "3.3"
+services:
+  app: &django
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: unless-stopped
+    command: /app/start.sh server
+    container_name: crypto-django
+    expose:
+      - "8000"
+    volumes:
+      - ./static:/app/static
+      - ./media_files:/app/media_files
+      - ./ca_files:/app/ca_files
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: "postgres:13-alpine"
+    container_name: crypto-psql
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./psql-data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+
+  nginx:
+    image: "nginx:1.19-alpine"
+    container_name: crypto-nginx
+    restart: unless-stopped
+    ports:
+      - 5000:80
+    volumes:
+      - ./docker/deployment/nginx:/etc/nginx/conf.d
+      - ./static:/var/www/static
+      - ./media_files:/var/www/media
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\";'"
+    depends_on:
+      - app
+
+  redis:
+    image: redis:6-alpine
+    container_name: crypto-redis
+    ports:
+      - "6379"
+    restart: unless-stopped
+
+  celery:
+    <<: *django
+    container_name: crypto-celery
+    depends_on:
+        - app
+        - db
+        - redis
+    ports:
+        - 8001:8000
+    command: /app/start.sh worker
+
+  beat:
+    <<: *django
+    container_name: crypto-beat
+    depends_on:
+        - app
+        - db
+        - redis
+    ports:
+        - 8002:8000
+    command: /app/start.sh beat

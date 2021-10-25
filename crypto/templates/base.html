@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crypto Tracker</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
+    <link href="{% static "vendor/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet"/>
+
+    <link href="{% static "styles.css" %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div class="content-area">
+        <div class="container-fluid">
+          <div class="main">
+            {% block body %}
+            {% endblock body %}
+
+            {% block script %}
+            {% endblock script %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white-50 mb-2">
+      <div class="container text-center text-dark">
+        <small>alfonsrv's Crypto Tracker</small>
+      </div>
+    </footer>
+
+    <script src="{% static "vendor/jquery.slim.min.js" %}"></script>
+    <script src="{% static "vendor/apex/apexcharts.js" %}"></script>
+    <script src="{% static "scripts.js" %}"></script>
+    <script src="{% static "vendor/htmx.min.js" %}"></script>
+    {% load django_htmx %}
+    {% django_htmx_script %}
+  </body>
+</html>
+

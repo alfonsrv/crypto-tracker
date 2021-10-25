@@ -1,0 +1,21 @@
+from django.shortcuts import render
+from django.conf import settings
+
+from crypto.models import Crypto
+from crypto.selectors import crypto_invest, crypto_ohlc
+
+
+def landing(request):
+    cryptos = crypto_invest(
+        crypto_queryset=Crypto.objects.order_by('order', 'symbol').prefetch_related('data', 'purchases')
+    )
+    crypto_charts = [
+        crypto_ohlc(crypto=crypto) for crypto
+        in cryptos.filter(show_chart=True)
+    ]
+
+    context = {
+        'cryptos': cryptos,
+        'crypto_charts': crypto_charts
+    }
+    return render(request, 'crypto/dashboard.html', context)

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# BASEDIR is the location of your git checkout
+BASEDIR=/opt/crypto
+DOCKER="docker-compose --file ${BASEDIR}/docker-compose.yml exec app"
+MANAGE="python manage.py"
+
+${DOCKER} ${MANAGE} "$@"

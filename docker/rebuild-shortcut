@@ -1,0 +1,13 @@
+#!/bin/bash
+set -ex
+
+# BASEDIR is the location of your git checkout
+BASEDIR=/opt/crypto
+
+cd ${BASEDIR}
+rm -rf static
+mkdir static
+chown 9000:9000 static
+git reset --hard
+git pull
+docker-compose up --force-recreate --build

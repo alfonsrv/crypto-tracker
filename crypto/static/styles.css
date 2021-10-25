@@ -1,0 +1,100 @@
+body {
+  background-color: #eff4f7;
+  color: #777;
+  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#wrapper {
+  flex: 1
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 600;
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./fonts/inter/inter-v3-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/inter/inter-v3-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+.content-area {
+  max-width: 1070px;
+  margin: 0 auto;
+}
+
+.box {
+  max-height: 444px;
+  box-shadow: 0px 1px 22px -12px #607D8B;
+  background-color: #fff;
+  padding: 25px 35px 25px 30px;
+}
+
+.box .cog-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 55px;
+  top: 25px;
+  z-index: 10;
+}
+
+@media screen and (max-width:760px) {
+  body {
+    background-color: #fff;
+  }
+  #topnav { flex-wrap: wrap; }
+  .admin-menu { flex-basis: 20%; }
+  .logo { justify-content: flex-end; padding-right: 10px; }
+  .logo { flex-basis: 80%; }
+  .topnav-rightmenu, .search-bar { display: none; }
+  .box {
+    padding: 0px 0;
+    box-shadow: none;
+  }
+}
+
+small {
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.crypto img {
+  height:  35px;
+}
+
+.crypto span {
+  white-space: nowrap;
+}
+
+.crypto .price {
+  color: black;
+  font-weight: 600;
+  margin-bottom: -5px;
+}
+
+.crypto .subinfo {
+  font-size:  13px;
+}
+
+.sparkboxes .box {
+  padding: 3px 0 0 0;
+  position: relative;
+}
+
+#spark1, #spark2, #spark3, #spark4 {
+  position: relative;
+  padding-top: 15px;
+}
+
+footer {
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
