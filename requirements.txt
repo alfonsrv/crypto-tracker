@@ -11,6 +11,7 @@ click-repl==0.2.0
 Django==3.2.8
 django-celery-beat==2.2.1
 django-celery-results==2.2.0
+django-debug-toolbar==3.2.2
 django-htmx==1.6.0
 django-redis==5.0.0
 django-timezone-field==4.2.1
@@ -19,7 +20,7 @@ idna==3.3
 kombu==5.1.0
 Pillow==8.4.0
 prompt-toolkit==3.0.21
-psycopg2-binary==2.9.1
+psycopg2-binary==2.8.5
 python-crontab==2.6.0
 python-dateutil==2.8.2
 python-dotenv==0.19.1
