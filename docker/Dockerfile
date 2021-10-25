@@ -37,7 +37,7 @@ RUN adduser --uid 9000 --disabled-password --gecos "" rausys && \
 VOLUME ["/app/static", "/app/media_files", "/app/ca_files"]
 
 RUN chown -R rausys:rausys /app/media_files && \
-    chown -R rausys:rausys /app/static &&
+    chown -R rausys:rausys /app/static
 
 RUN update-ca-certificates --fresh
 USER rausys:rausys
