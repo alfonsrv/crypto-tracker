@@ -6,8 +6,12 @@ from crypto.selectors import crypto_invest, crypto_ohlc
 
 
 def landing(request):
+    crypto_queryset = Crypto.objects\
+        .order_by('order', 'symbol')\
+        .prefetch_related('data', 'purchases')\
+        .filter(enabled=True)
     cryptos = crypto_invest(
-        crypto_queryset=Crypto.objects.order_by('order', 'symbol').prefetch_related('data', 'purchases')
+        crypto_queryset=crypto_queryset
     )
     crypto_charts = [
         crypto_ohlc(crypto=crypto) for crypto

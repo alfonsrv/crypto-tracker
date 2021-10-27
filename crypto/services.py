@@ -17,6 +17,9 @@ def percentual_change(*, crypto_ticker: str):
 def crypto_update():
     """ Updates all enabled Cryptos' price information """
     cryptos = Crypto.objects.filter(enabled=True).values_list('symbol', flat=True)
+    if not cryptos:
+        logger.info('No cryptos available for updating; skipping...')
+        return
     crypto_quotes = crypto_get(crypto_symbols=cryptos)
     for symbol, quote in crypto_quotes.items():
         CryptoData.objects.create(

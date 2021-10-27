@@ -8,6 +8,22 @@ from forex_python.converter import CurrencyRates, CurrencyCodes, RatesNotAvailab
 
 from crypto.utils import crypto_image_path
 
+# TODO: Presaving
+# img = Image.open(self.image.path)
+# if (img.height != img.width):
+#     size = min(img.size)
+#     left = (img.width - size) // 2
+#     top = (img.height - size) // 2
+#     right = (img.width + size) // 2
+#     bottom = (img.height + size) // 2
+#     img = img.crop((left, top, right, bottom))
+#
+# if (img.height > 200 or img.width > 200):
+#     size = (100, 100)
+#     img.thumbnail(size)
+#
+# img.save(self.image.path)
+
 
 class Crypto(models.Model):
     symbol = models.CharField(max_length=10, help_text='Crypto Ticker used for querying from CoinMarketCap')
@@ -88,8 +104,8 @@ class CryptoPurchases(models.Model):
     buy_price = models.FloatField(blank=True, help_text='If no buy price is specified, it will be looked up on '
                                                       'CoinMarketCap based on the buying timestamp (requires Advanced API plan)')
     buy_currency = models.CharField(max_length=4)
-    target_price = models.FloatField()
-    target_currency = models.CharField(max_length=4)
+    target_price = models.FloatField(blank=True)
+    target_currency = models.CharField(max_length=4, blank=True)
     bought_at = models.DateTimeField(default=timezone.now, blank=True)
 
     class Meta:
