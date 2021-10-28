@@ -12,7 +12,13 @@ def currency_symbol(value):
     c = CurrencyCodes()
     currency = settings.TARGET_CURRENCY or settings.COINMARKET_CURRENCY
     symbol = c.get_symbol(currency)
-    return f'{intcomma(round(value, 2))} {symbol}'
+    crypto_value = float(cryptoformat(value))
+    comma_value = intcomma(crypto_value)
+
+    if len(str(f'{crypto_value:f}')) > len(comma_value):
+        comma_value = f'{comma_value}0'
+
+    return f'{comma_value} {symbol}'
 
 
 @register.filter
