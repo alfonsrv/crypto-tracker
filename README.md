@@ -17,12 +17,12 @@ amounts of points required per API call, thus requires increasing the time betwe
 
 ## Features
 
-💸 Personalized crypto portfolio tracking
-💸 Centrally keep an eye on its current value
-💸 Quickly react to emerging changes
-💸 Convert values into local currency
-💸 Chart crypto course
-💸 Soon: alerting via Pushover
+💸 Personalized crypto portfolio tracking  
+💸 Centrally keep an eye on its current value  
+💸 Quickly react to emerging changes  
+💸 Convert values into local currency  
+💸 Chart crypto course  
+💸 Soon: alerting via Pushover  
 
 ## Deployment
 
