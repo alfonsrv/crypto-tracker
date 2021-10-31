@@ -37,10 +37,8 @@ Once rolled out the application is reachable via `http://<ip-address>:5000`
 
 ### Requirements
 
-* [Python 3.x](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/get-docker/)  
 * [docker-compose](https://docs.docker.com/compose/install/)  
-* `pip3 install -r requirements.txt`
 * [CoinMarketCap API Key](https://coinmarketcap.com/api/)
 
 ### Setup
@@ -69,13 +67,17 @@ chmod +x ./rebuild
 ./rebuild
 ```
 
+Everything should now be running smoothly. Use a service (`cron` will also do) to start
+the process automatically at boot. Alternatively you can also add `-d` to the `docker-compose`
+command in `rebuild` and run it manually at each startup.
+
 ## Usage 🚀
 
 Once running, access the admin panel via `http://<ip-address>:5000/admin` 
 To access it, you will need to create a user using `chmod +x docker/manage-shortcut; ./docker/manage-shortcut createsuperuser`  
 
-You can then add your `Cryptos` you wish to track. Once added, `Purchases` enable you to indicate your assets/amount 
-of each crypto.
+Login with the credentials just created, to then add the `Cryptos` you wish to track. 
+Once added, `Purchases` enable you to indicate your assets/amount for each crypto.
 
 
 [![Buy me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/alfonsrv)  
