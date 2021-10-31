@@ -44,8 +44,8 @@ Once rolled out the application is reachable via `http://<ip-address>:5000`
 
 ### Setup
 
-All relevant parameters are controlled via environment variables that are automatically passed 
-to the docker-compose stack.
+All relevant parameters are controlled via environment variables that are passed
+to the docker-compose stack. For further reference review the `config/settings.py` file.
 
 ```bash
 mv dotenv-sample .env
@@ -63,8 +63,9 @@ vi .env
 
 ```bash
 mv docker/docker-compose .
-chmod +x docker/rebuild-shortcut
-./docker/rebuild-shortcut
+mv docker/rebuild-shortcut rebuild
+chmod +x ./rebuild
+./rebuild
 ```
 
 ## Usage
