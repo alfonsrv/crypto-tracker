@@ -101,11 +101,19 @@ class CryptoData(models.Model):
 class CryptoPurchases(models.Model):
     crypto = models.ForeignKey(Crypto, on_delete=models.CASCADE, related_name='purchases')
     amount = models.FloatField()
-    buy_price = models.FloatField(blank=True, help_text='If no buy price is specified, it will be looked up on '
-                                                      'CoinMarketCap based on the buying timestamp (requires Advanced API plan)')
+    buy_price = models.FloatField(
+        help_text='If no buy price is specified, it will be looked up on '
+                  'CoinMarketCap based on the buying timestamp (requires Advanced API plan)'
+    )
     buy_currency = models.CharField(max_length=4)
-    target_price = models.FloatField(blank=True)
-    target_currency = models.CharField(max_length=4, blank=True)
+    target_price = models.FloatField(
+        blank=True,
+        help_text='Automatically converts buying price into localized-target price if left empty'
+    )
+    target_currency = models.CharField(
+        max_length=4, blank=True,
+        help_text='Automatically converty buying price into localized-target price if left empty'
+    )
     bought_at = models.DateTimeField(default=timezone.now, blank=True)
 
     class Meta:

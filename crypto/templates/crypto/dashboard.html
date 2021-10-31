@@ -29,7 +29,7 @@
   <div class="row mt-4 mb-4">
 
   {% for crypto in cryptos %}
-    <div class="col-6 col-sm-4 col-md-4 col-lg-3">
+    <div class="col-6 col-sm-4 col-md-4 col-lg-3 pb-4">
       <div class="box">
         <div class="crypto d-flex align-items-center ml-sm-2 ml-md-0 {% if forloop.first %}ml-sm-2 ml-md-0{% endif %}">
           <img src="{{ crypto.image.url }}" class="rounded-circle" alt="{{ crypto.display_name }}">

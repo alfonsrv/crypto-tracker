@@ -1,7 +1,8 @@
 from celery import shared_task
 
+from crypto.services import crypto_update
+
 
 @shared_task
-def check_certificates():
-    pass
-    # call_command('certificates', '--all')
+def crypto_update_task():
+    crypto_update()

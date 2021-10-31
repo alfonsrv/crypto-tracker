@@ -13,10 +13,14 @@ def landing(request):
     cryptos = crypto_invest(
         crypto_queryset=crypto_queryset
     )
-    crypto_charts = [
-        crypto_ohlc(crypto=crypto) for crypto
-        in cryptos.filter(show_chart=True)
-    ]
+
+    crypto_charts = []
+    if not request.GET.get('charts'):
+        # ?charts param to disable chart rendering
+        crypto_charts = [
+            crypto_ohlc(crypto=crypto) for crypto
+            in cryptos.filter(show_chart=True)
+        ]
 
     context = {
         'cryptos': cryptos,

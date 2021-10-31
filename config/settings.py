@@ -2,6 +2,8 @@ import os
 from distutils.util import strtobool
 from pathlib import Path
 
+from celery.schedules import crontab
+
 from config.utils import get_env_value
 
 from dotenv import load_dotenv
@@ -197,3 +199,11 @@ if DEBUG:
     INSTALLED_APPS += ['debug_toolbar']  # noqa F405
     MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']  # noqa F405
     INTERNAL_IPS = ['127.0.0.1']
+
+
+CELERY_BEAT_SCHEDULE = {
+    'crypto_update': {
+        'task': 'crypto.tasks.crypto_update_task',
+        'schedule': crontab(minute='*/5'),
+    },
+}

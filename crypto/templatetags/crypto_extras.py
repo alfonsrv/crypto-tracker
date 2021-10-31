@@ -14,8 +14,7 @@ def currency_symbol(value):
     symbol = c.get_symbol(currency)
     crypto_value = float(cryptoformat(value))
     comma_value = intcomma(crypto_value)
-
-    if len(str(f'{crypto_value:f}')) > len(comma_value):
+    if len(str(crypto_value)) > len(comma_value):
         comma_value = f'{comma_value}0'
 
     return f'{comma_value} {symbol}'
