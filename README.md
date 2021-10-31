@@ -1,9 +1,9 @@
-# Crypto Tracker 🐍📈 – Central portfolio tracking
+# Crypto Tracker 🐍📈 – Central Portfolio Tracking
 
 [![Python](https://img.shields.io/badge/Made%20with-Python%203.x-blue.svg?style=flat-square&logo=Python&logoColor=white)](https://www.python.org/) 
 [![Django](https://img.shields.io/badge/Powered%20by-Django%203.x-green.svg?style=flat-square&logo=Django&logoColor=white)](https://www.djangoproject.com/) 
 
-### See what your meme coins are doing
+### Easy asset tracking – at a glance 🚀
 
 ![Application Screenshot](media_files/sample.png)
 
@@ -15,16 +15,17 @@ The current course data is polled from CoinMarketCap's REST API and stored in th
 a maximum of 333 points worth of daily requests (~1 request / 5min). Querying multiple cryptos may increase the 
 amounts of points required per API call, thus requires increasing the time between requests.
 
-## Features
+## ⭐ Features
 
 💸 Personalized crypto portfolio tracking  
 💸 Centrally keep an eye on its current value  
 💸 Quickly react to emerging changes  
+💸 Show overall or current value  
 💸 Convert values into local currency  
 💸 Chart crypto course  
 💸 Soon: alerting via Pushover  
 
-## Deployment
+## Deployment 👾
 
 Deployment is best done via Docker – can also be achieved by installing each component manually,
 but this is quite tedious, so I'm not going to detail that here.
@@ -68,7 +69,7 @@ chmod +x ./rebuild
 ./rebuild
 ```
 
-## Usage
+## Usage 🚀
 
 Once running, access the admin panel via `http://<ip-address>:5000/admin` 
 To access it, you will need to create a user using `chmod +x docker/manage-shortcut; ./docker/manage-shortcut createsuperuser`  
@@ -81,7 +82,7 @@ of each crypto.
 
 ---
 
-## TODOs
+## TODOs 🛠️
 
 - Resize image  
 - Price Alerting
