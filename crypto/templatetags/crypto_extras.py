@@ -34,7 +34,7 @@ def cryptoformat(value):
     float_format = 2
     if value < 1:
         # finds first number after zeroes
-        float_format = int(str(value).partition('-')[2]) + 100
+        float_format = int(str(value).partition('.')[2]) + 100
 
     value = round(value, float_format)
     return f'{value:f}'
